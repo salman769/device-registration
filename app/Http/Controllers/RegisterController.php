@@ -14,8 +14,9 @@ class RegisterController extends Controller
     }
 
     public function Registration(Request $request){
-        $data = new User();
-        $data->shopify_namespace = $request->product_name;
+        $shop = Auth::user();
+        $shop->shopify_namespace = $request->product_name;
+        $shop->save();
         return response([
             'name'=>$request->product_name,
         ]);

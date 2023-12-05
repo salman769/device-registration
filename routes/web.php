@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(['verify.shopify'])->name('home');
+//Route::get('/', function () {
+//    return view('welcome');
+//})->middleware(['verify.shopify'])->name('home');
 
 Route::group(['middleware' => ['verify.shopify']], function () {
     // Index
-    Route::get('/', [App\Http\Controllers\RegisterController::class, 'Register'])->name('home');
+    Route::get('/', [App\Http\Controllers\RegisterController::class, 'WarrantyRegister'])->name('home');
 
 });
